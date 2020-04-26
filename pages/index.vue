@@ -1,10 +1,13 @@
 <template>
   <div id="container">
     <div id="background-cover" class="flex w-screen max-w-md ">
-      <nuxt-link
-        class="absolute h-screen min-w-screen object-cover z-10 "
-        to="@assets/images/home.jpg"
-      ></nuxt-link>
+      <div>
+        <img
+          class="absolute h-screen min-w-screen object-cover z-10"
+          src="@/assets/images/home.jpg"
+          alt="greenhouse"
+        />
+      </div>
       <div
         class="absolute min-h-screen min-w-full bg-teal-900 opacity-75 text-white z-20"
       ></div>
@@ -29,7 +32,6 @@
 export default {
   data() {
     return {
-      imagePath: '~/assets/images/home.jpg',
       heading1: 'Our Mission Is Great',
       subHeading: 'Let us tell you why. It begins with a great website.'
     }

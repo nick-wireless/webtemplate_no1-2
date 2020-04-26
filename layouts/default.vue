@@ -59,7 +59,7 @@
 export default {
   data() {
     return {
-      siteName: 'Webtemplate No1-2',
+      siteName: 'Webtemplate',
       home: 'Mission', // Home page
       about: 'People', // Equivalent to About
       contact: 'Contact'
