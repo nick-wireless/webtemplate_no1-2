@@ -1,73 +1,40 @@
 <template>
-  <div class="container">
+  <div id="container">
+    <div id="background-cover" class="flex w-screen max-w-md ">
+      <nuxt-link
+        class="absolute h-screen min-w-screen object-cover z-10 "
+        to="@assets/images/home.jpg"
+      ></nuxt-link>
+      <div
+        class="absolute min-h-screen min-w-full bg-teal-900 opacity-75 text-white z-20"
+      ></div>
+    </div>
+    <div class="h-56 relative"></div>
     <div>
-      <logo />
-      <h1 class="title">
-        webtemplate_no1-2
-      </h1>
-      <h2 class="subtitle">
-        A corporate website template.
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+      <div
+        class=" inline-block relative z-30 mt-8 px-8 md:px-16 w-screen font-sans font-display text-white font-bold text-3xl tracking-wider text-right"
+      >
+        {{ heading1 }}
       </div>
+      <h3
+        class=" inline-block relative z-30 mt-8 px-8 md:px-16 w-screen font-sans font-display text-white font-semibold text-2xl tracking-wide text-right leading-loose"
+      >
+        {{ subHeading }}
+      </h3>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
-  components: {
-    Logo
+  data() {
+    return {
+      imagePath: '~/assets/images/home.jpg',
+      heading1: 'Our Mission Is Great',
+      subHeading: 'Let us tell you why. It begins with a great website.'
+    }
   }
 }
 </script>
 
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
+<style></style>
