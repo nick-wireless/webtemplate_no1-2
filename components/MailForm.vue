@@ -78,15 +78,26 @@ export default {
   data() {
     return {
       guestEmail: null,
-      guestPhone: null
+      guestPhone: null,
+      cleanPhoneNo: null
       // guestPhone: Number
     }
   },
   computed: {
-    phoneIsValid(num) {
-      // return typeof this.guestPhone === "number";
-      return num === 1
+    isValidPhone() {
+      return typeof this.cleanPhoneNo === 'number'
     },
+
+    cleaningPhoneNo() {
+      const filter = /\d/g
+      const cleaner = this.guestPhone.replace(filter, '')
+      this.cleanPhoneNo = parseInt(cleaner)
+    },
+
+    howLong() {
+      return String(this.cleanPhoneNo).length
+    },
+
     emailIsValid() {
       const filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
       if (filter.test(this.guestEmail)) {
