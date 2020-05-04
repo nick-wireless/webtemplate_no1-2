@@ -83,47 +83,8 @@ export default {
       // guestPhone: Number
     }
   },
-  computed: {
-    isValidPhone() {
-      return typeof this.cleanPhoneNo === 'number'
-    },
-
-    cleaningPhoneNo() {
-      const filter = /\d/g
-      const cleaner = this.guestPhone.replace(filter, '')
-      this.cleanPhoneNo = parseInt(cleaner)
-    },
-
-    howLong() {
-      return String(this.cleanPhoneNo).length
-    },
-
-    emailIsValid() {
-      const filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
-      if (filter.test(this.guestEmail)) {
-        return true
-      }
-      return false
-    },
-    hasTwoInputs() {
-      return this.guestEmail !== null && this.guestPhone !== null
-    },
-    formIsValid() {
-      return this.emailIsValid && this.phoneIsValid
-    }
-  },
-  methods: {
-    notify() {
-      if (this.formIsValid) {
-        console.log(
-          'Email is: ' + this.guestEmail,
-          'Phone is: ' + this.guestPhone
-        )
-      } else {
-        console.log('An error found with the inputs.')
-      }
-    }
-  }
+  computed: {},
+  methods: {}
 }
 </script>
 
