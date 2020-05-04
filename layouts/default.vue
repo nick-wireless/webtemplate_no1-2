@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div class="max-w-screen flex flex-col items-center">
+    <div
+      class="absolute min-h-screen w-screen  bg-teal-900 opacity-75 text-white z-20"
+    ></div>
     <div
       id="nav-bar"
       class=" absolute z-40 md:flex justify-between w-screen max-w-screen-md items-center"
@@ -49,7 +52,7 @@
         </nuxt-link>
       </nav>
     </div>
-    <div class="max-w-screen-md">
+    <div class=" max-w-screen-md">
       <nuxt />
     </div>
   </div>
