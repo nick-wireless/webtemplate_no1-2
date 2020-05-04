@@ -1,7 +1,10 @@
 <template>
   <div class="z-30 flex flex-col relative lg:mt-8 ">
     <button
-      class="md:mt-8 mx-16 px-6 font-sans font-display text-white tracking-wide leading-loose bg-purple-400 rounded-sm button-float-right z-30"
+      id="more-info"
+      class="md:mt-8 mx-16 px-6 font-sans font-display text-white tracking-wide leading-loose bg-purple-400 rounded-sm button-float-right z-30 focus:outline-none "
+      :class="{ active: isActive }"
+      @click="makeActive"
     >
       More Info
     </button>
@@ -9,6 +12,7 @@
     <svg
       class="w-8 h-8 absolute right-0 bottom-0 mr-16 fill-current text-purple-400
         z-20"
+      :class="{ activetext: isActive }"
       viewBox="0 0 34 34"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -26,10 +30,29 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      isActive: false
+    }
+  },
+  methods: {
+    makeActive() {
+      this.isActive = !this.isActive
+    }
+  }
+}
 </script>
 
 <style>
+.active {
+  @apply bg-pink-300;
+}
+
+.activetext {
+  @apply text-pink-300;
+}
+
 .button-float-right {
   display: inline-block;
   vertical-align: middle;
@@ -46,7 +69,6 @@ export default {}
 .button-float-right:hover,
 .button-float-right:focus,
 .button-float-right:active {
-  opacity: 100;
   -webkit-transform: translateX(-15px);
   transform: translateX(-15px);
 }
