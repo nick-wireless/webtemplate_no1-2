@@ -1,35 +1,37 @@
 <template>
-  <div>
-    <div id="background-cover" class="flex w-screen max-w-md ">
+  <div id="container">
+    <div id="background-cover" class="flex w-screen ">
       <img
-        class="absolute h-screen min-w-screen object-cover z-10 "
-        src="~/assets/images/people.jpg"
+        class="absolute h-screen md:max-w-screen-md object-cover z-10"
+        src="@/assets/images/people.jpg"
+        alt="people"
       />
-      <div
-        class="absolute min-h-screen min-w-full bg-teal-900 opacity-75 text-white z-20"
-      ></div>
     </div>
     <div class="h-56 relative"></div>
-    <div>
+    <div class="flex flex-col items-start">
       <h2
-        class=" inline-block relative z-30 mt-8 px-8 md:px-16 w-screen font-sans font-display text-white font-bold text-3xl tracking-wider text-left"
+        class=" inline-block relative z-30 mt-8 pr-8 md:px-16 font-sans font-display text-white font-bold text-3xl tracking-wider "
       >
         {{ heading1 }}
       </h2>
       <h3
-        class=" inline-block relative z-30 mt-8 px-8 md:px-16 w-screen font-sans font-display text-white font-semibold text-2xl tracking-wide text-left leading-loose"
+        class=" inline-block relative z-30 mt-8 p-8 md:px-16 font-sans font-display text-white font-semibold text-2xl tracking-wide  leading-loose"
       >
         {{ subHeading }}
       </h3>
+      <MoreInfo />
     </div>
   </div>
 </template>
 
 <script>
+import MoreInfo from '../components/MoreInfo.vue'
+
 export default {
   metaInfo: {
     title: 'About, people, biography, team.'
   },
+  components: { MoreInfo },
   data() {
     return {
       imagePath: '~/assets/images/people.jpg',
