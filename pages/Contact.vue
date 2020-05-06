@@ -1,13 +1,10 @@
 <template>
   <div>
-    <div id="background-cover" class="flex w-screen max-w-md ">
+    <div id="background-cover" class="flex w-screen">
       <img
-        class="absolute h-screen min-w-screen object-cover z-10 "
-        src="~/assets/images/home.jpg"
+        class="absolute h-screen md:max-w-screen-md object-cover z-10 "
+        src="~/assets/images/contact.jpg"
       />
-      <div
-        class="absolute min-h-screen min-w-full bg-teal-900 opacity-75 text-white z-20"
-      ></div>
     </div>
     <div class="h-56 relative"></div>
     <section class=" flex flex-col md:flex-row md:justify-center">
