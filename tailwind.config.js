@@ -10,6 +10,15 @@ module.exports = {
 			fontFamily: {
 				display: [ 'IBM Plex Sans' ],
 				headings: [ 'Literata' ]
+			},
+			minWidth: {
+				'0': '0',
+				'20': '20%',
+				'40': '40%',
+				'50': '50%',
+				'60': '60%',
+				'80': '75%',
+				full: '100%'
 			}
 		}
 	},
