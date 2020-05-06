@@ -7,6 +7,7 @@
       />
     </div>
     <div class="h-56 relative"></div>
+
     <section class=" flex flex-col md:flex-row md:justify-center">
       <!-- Form to collect email & phone number. -->
       <MailForm class="relative z-30"></MailForm>
@@ -34,7 +35,7 @@ export default {
   components: { MailForm },
   data() {
     return {
-      imagePath: '~/assets/images/home.jpg'
+      imagePath: '../assets/images/contact.jpg'
     }
   }
 }
