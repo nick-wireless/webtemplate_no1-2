@@ -10,7 +10,7 @@
       <div class="absolute inline-block right-0">
         <SendingIcon class=" w-12 h-12 p-2"></SendingIcon>
       </div>
-      <form class="mt-2" @submit.prevent="notify">
+      <form class="mt-2" @submit.prevent="">
         <input type="hidden" name="form-name" value="contactForm" />
         <!-- To: Darwin Office -->
         <div class="flex text-blue-800 font-sans font-display font-semibold">
@@ -30,7 +30,7 @@
           >
           <input
             id="guestEmail"
-            v-model="guestEmail"
+            v-model="email"
             class="inline-block mt-4 pl-2 mr-3 w-48 h-10 rounded"
             autocomplete="email"
             placeholder="Your email here ..."
@@ -46,7 +46,7 @@
           >
           <input
             id="guestPhone"
-            v-model.number="guestPhone"
+            v-model.number="phone"
             class="inline-block mt-4 pl-2 w-48 h-10 rounded"
             autocomplete="tel"
             placeholder="Your phone here ..."
@@ -58,7 +58,8 @@
             type="submit"
             name="button"
             class="inline-block h-12 p-3 font-display text-purple-500 "
-            :disabled="!hasTwoInputs"
+            :disabled="disabled"
+            @click="toggleLongForm"
           >
             Next
           </button>
@@ -66,30 +67,48 @@
         </div>
       </form>
     </div>
+    <MailFormLong v-if="showLongForm" :phone="phone" :email="email" />
   </div>
 </template>
 
 <script>
+import MailFormLong from '~/components/MailFormLong.vue'
+
 import SendingIcon from '~/assets/svgs/Sending.vue'
 import NextIcon from '~/assets/svgs/Next.vue'
 
 export default {
-  components: { SendingIcon, NextIcon },
+  components: { MailFormLong, SendingIcon, NextIcon },
   data() {
     return {
-      guestEmail: null,
-      guestPhone: null,
-      cleanPhoneNo: null
-      // guestPhone: Number
+      email: '',
+      phone: '',
+      showLongForm: false
     }
   },
-  computed: {},
-  methods: {}
+  computed: {
+    disabled() {
+      if (this.email.length < 3) {
+        return true
+      }
+      if (this.phone.length < 3) {
+        return true
+      }
+      return false
+    }
+  },
+
+  methods: {
+    toggleLongForm() {
+      this.showLongForm = !this.showLongForm
+      window.console.log('Next has been pushed.')
+    }
+  }
 }
 </script>
 
 <style>
-.primary {
+/* .primary {
   @apply fill-current text-gray-600;
-}
+} */
 </style>

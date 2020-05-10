@@ -22,6 +22,7 @@
         <div>ABN: 12 345 6789</div>
       </div>
     </section>
+    <!-- <MailFormLong :phone="phone" :email="email" /> -->
   </div>
 </template>
 

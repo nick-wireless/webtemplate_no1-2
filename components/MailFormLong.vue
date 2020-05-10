@@ -1,5 +1,5 @@
 <template>
-  <div id="mail-form-long" class="relative w-screen h-56 z-30 px-4">
+  <div id="mail-form-long" class="absolute w-screen h-56 z-30 px-4">
     <div id="card" class="bg-teal-200 rounded-md">
       <div id="address-details" class="flex flex-col">
         <div class="pt-2">
@@ -9,10 +9,12 @@
         <div class="pt-2">
           <span>From:</span>
           <span>{{ email }}</span>
+          <div v-if="emailError">Error: please check email input.</div>
         </div>
         <div class="pt-2">
           <span>And: </span>
           <span>{{ phone }}</span>
+          <div v-if="phoneError">Error: please check phone input.</div>
         </div>
       </div>
       <div class="flex flex-col items-center pt-4">
@@ -42,18 +44,22 @@ export default {
   props: {
     email: {
       type: String,
-      error: false,
       required: true
     },
     phone: {
-      type: Number,
-      error: false,
+      type: String,
       required: true
+    },
+    visible: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
-      message: 'Please call [ enter your name ].  Or type a custom message.'
+      message: 'Please call [ enter your name ].  Or type a custom message.',
+      emailError: false,
+      phoneError: false
     }
   }
 }
